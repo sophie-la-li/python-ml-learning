@@ -53,7 +53,7 @@ if os.path.isfile(nn_storage_file):
 
 # training -------------------------------------------------
 
-trainingCycles: int = 1
+trainingCycles: int = 0
 
 if trainingCycles > 0:
     trainingSets: dict = loadMnistDataSet(
@@ -97,16 +97,21 @@ if testingCycles > 0:
             expected[testingSet["label"]] = 1;
             output: list = nn.execute(input)
 
-            correct_: bool = True
-            for j in range(len(expected)):
-                if abs(expected[j] - output[j]) > 0.1: 
-                    print(expected, output)
-                    #sys.exit()
-                    correct_ = False
-                    break
+            if output.index(max(output)) == testingSet["label"]: correct += 1
+            else:
+                incorrect += 1
+                print(testingSet["label"], expected, output)
 
-            if correct_: correct += 1
-            else: incorrect += 1
+            # correct_: bool = True
+            # for j in range(len(expected)):
+            #     if abs(expected[j] - output[j]) > 0.1: 
+            #         print(expected, output)
+            #         #sys.exit()
+            #         correct_ = False
+            #         break
+
+            # if correct_: correct += 1
+            # else: incorrect += 1
 
         print('ended testingSets cycle ' + str(i+1))
         print('correct:', correct)
