@@ -5,7 +5,7 @@ import json
 import os.path
 
 sys.path.append(os.path.join(sys.path[0], '..'))
-import src.NeutralNetwork as NN
+import src.NeuralNetwork as NN
 
 def loadFileBytes(file: str) -> bytes:
     with open(file, "rb") as f:
@@ -39,9 +39,9 @@ def loadMnistDataSet(labelFile: str, dataFile: str) -> dict:
 
 # nn setup ------------------------------------------------
 
-nn_storage_file: str = './tests/NeutralNetWorkMnist.nn'
+nn_storage_file: str = './tests/NeuralNetworkMnist.nn'
 
-nn = NN.NeutralNetwork()
+nn = NN.NeuralNetwork()
 nn.inputSize = 1+(28*28)
 nn.hiddenNumber = 0
 nn.outputSize = 10

@@ -2,7 +2,7 @@ import random
 import math
 from copy import copy, deepcopy
 
-class NeutralNetwork:
+class NeuralNetwork:
     ACTIVATION_FN_IDENDITY: int = 0
     ACTIVATION_FN_SIGMOID: int = 1
 

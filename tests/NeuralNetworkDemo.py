@@ -4,9 +4,9 @@ import random
 import time
 
 sys.path.append(os.path.join(sys.path[0], '..'))
-import src.NeutralNetwork as NN
+import src.NeuralNetwork as NN
 
-addition = NN.NeutralNetwork()
+addition = NN.NeuralNetwork()
 addition.inputSize = 2
 addition.hiddenSize = 2
 addition.hiddenNumber = 0
